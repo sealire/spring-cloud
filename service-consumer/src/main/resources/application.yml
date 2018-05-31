@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: service-consumer
+server:
+  port: 12140
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server.eureka.leesia.org:12120/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+---
+spring:
+  application:
+    name: service-consumer
+  profiles: eureka-cluster
+server:
+  port: 12141
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server-peer1.eureka.leesia.org:12121/eureka/,http://server-peer2.eureka.leesia.org:12122/eureka/,http://server-peer3.eureka.leesia.org:12123/eureka/
+    fetch-registry: true
+    register-with-eureka: true

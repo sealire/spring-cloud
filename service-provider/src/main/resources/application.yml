@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: service-provider
+server:
+  port: 12130
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server.eureka.leesia.org:12120/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+---
+spring:
+  application:
+    name: service-provider
+  profiles: eureka-peer1
+server:
+  port: 12132
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server-peer1.eureka.leesia.org:12121/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+---
+spring:
+  application:
+    name: service-provider
+  profiles: eureka-peer2
+server:
+  port: 12133
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server-peer2.eureka.leesia.org:12122/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+---
+spring:
+  application:
+    name: service-provider
+  profiles: eureka-peer3
+server:
+  port: 12134
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server-peer3.eureka.leesia.org:12123/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+---
+spring:
+  application:
+    name: service-provider
+  profiles: eureka-cluster
+server:
+  port: 12131
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://server-peer1.eureka.leesia.org:12121/eureka/,http://server-peer2.eureka.leesia.org:12122/eureka/,http://server-peer3.eureka.leesia.org:12123/eureka/
+    fetch-registry: true
+    register-with-eureka: true
